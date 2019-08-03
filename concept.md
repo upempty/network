@@ -9,3 +9,8 @@ sockfd = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.ntohs(3))--ethe
 #define ETH_P_ALL       0x0003          /* Every packet (be careful!!!) */
 #define ETH_P_IP        0x0800          /* Internet Protocol packet     */
 ```
+## 3 comm
+```
+FullMsg, MsgPayload---pack/unpack
+Msghandler emit/recv via conn. Connection via dedicated one type connector e.g tcp channel.
+```

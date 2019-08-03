@@ -13,4 +13,5 @@ sockfd = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.ntohs(3))--ethe
 ```
 FullMsg, MsgPayload---pack/unpack
 Msghandler emit/recv via conn. Connection via dedicated one type connector e.g tcp channel.
+TaskSchedule
 ```

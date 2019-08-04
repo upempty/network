@@ -15,3 +15,13 @@ FullMsg, MsgPayload---pack/unpack
 Msghandler emit/recv via conn. Connection via dedicated one type connector e.g tcp channel.
 TaskSchedule
 ```
+
+## 4 socket / file descripter
+```
+socket associated local IP@ and port
+file descripter associated 5 elements : source IP@/source port/des IP@/dest port/protocol
+```
+## 5 ARP
+```
+PC_A IP--->ARP--->switch--->Router: return mac@ of router, then data transfer to Router, Router--->switch....->PC_B.
+```

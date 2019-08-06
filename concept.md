@@ -23,12 +23,15 @@ file descripter associated 5 elements : source IP@/source port/des IP@/dest port
 ```
 ## 5 data transfer
 ```
+PC_A-->dest IP@-->PC_B:
+==
 PC_A->dest IP@--->ARP--->switch--->Router: return mac@ of router, then data transfer to Router;
 check the dest IP@, Router--->switch....->PC_B.
-PC_A-->dest IP@-->PC_B:
-Step1: if no dest mac@ in ARP table, ARP broadcast.
-         if target PC_B responsed, then get mac@, construct ip layer/ethernet layer to send.
-         if router(default gw) find dest mac@ is in another network, response with route mac@, 
+==
+==
+Action: if no dest mac@ in ARP table, ARP broadcast.
+          if target PC_B responsed, then get mac@, construct ip layer/ethernet layer to send.
+          if router(default gw) find dest mac@ is in another network, response with route mac@, 
                             then get mac@, contruct ip/ethernet layer to send to router.
-            router will continue check go to Step1
+             router will continue check go to Action.
 ```

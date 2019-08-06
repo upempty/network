@@ -21,7 +21,8 @@ TaskSchedule
 socket associated local IP@ and port
 file descripter associated 5 elements : source IP@/source port/des IP@/dest port/protocol
 ```
-## 5 ARP
+## 5 data transfer
 ```
-PC_A IP--->ARP--->switch--->Router: return mac@ of router, then data transfer to Router, Router--->switch....->PC_B.
+PC_A IP--->ARP--->switch--->Router: return mac@ of router, then data transfer to Router;
+check the dest IP@, Router--->switch....->PC_B.
 ```

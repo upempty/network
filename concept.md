@@ -35,3 +35,12 @@ Action: if no dest mac@ in ARP table, ARP broadcast.
                             then get mac@, contruct ip/ethernet layer to send to router.
              router will continue check go to Action.
 ```
+## broadcast vs flooding
+```
+A switch never broadcasts frames;
+A switch can only flood a frame
+ARP is example for barodcast for finding IP@'s mac
+Flooding is for that unknown destination mac comes into switch:
+  Since it doesn't know where the destination MAC address is, it floods the frame out all ports.
+   simply duplicate the frame and send it out all ports
+```

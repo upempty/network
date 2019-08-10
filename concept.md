@@ -77,3 +77,20 @@ Otherwise, the sk_buff is appended to one of the socket's queues and will be cop
 Finally, the receive functions call the socket's sk_data_ready virtual method to signal that data is available. 
 This wakes up waiting processes.
 ```
+## top interrupt and bottom interupt
+```
+The high level path a packet takes from arrival to socket receive buffer is as follows:
+
+Driver is loaded and initialized.
+Packet arrives at the NIC from the network.
+Packet is copied (via DMA) to a ring buffer in kernel memory.
+Hardware interrupt is generated to let the system know a packet is in memory.
+Driver calls into NAPI to start a poll loop if one was not running already.
+ksoftirqd processes run on each CPU on the system. They are registered at boot time. The  ksoftirqd processes pull packets off the ring buffer by calling the NAPI poll function that the device driver registered during initialization.
+Memory regions in the ring buffer that have had network data written to them are unmapped.
+Data that was DMA’d into memory is passed up the networking layer as an ‘skb’ for more processing.
+Incoming network data frames are distributed among multiple CPUs if packet steering is enabled or if the NIC has multiple receive queues.
+Network data frames are handed to the protocol layers from the queues.
+Protocol layers process data.
+Data is added to receive buffers attached to sockets by protocol layers.
+```

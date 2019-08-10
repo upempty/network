@@ -65,6 +65,11 @@ struct sk_buff_head sk_receive_queue;
 /* Callback */
 void (*sk_data_ready)(struct sock *sk, int bytes);
 }
-Passing the incoming packet to an upper layer is done in tcp_rcv_established() and tcp_data_queue(). These functions maintain the tcp connection's out_of_order_queue, and the socket's sk_receive_queue and sk_async_wait_queue. If a user process is already waiting for data to arrive, the data is immediately copied to user space using skb_copy_datagram_iovec(). Otherwise, the sk_buff is appended to one of the socket's queues and will be copied later.
-Finally, the receive functions call the socket's sk_data_ready virtual method to signal that data is available. This wakes up waiting processes.
+Passing the incoming packet to an upper layer is done in tcp_rcv_established() and tcp_data_queue(). 
+These functions maintain the tcp connection's out_of_order_queue, and the socket's sk_receive_queue and sk_async_wait_queue. 
+If a user process is already waiting for data to arrive, 
+the data is immediately copied to user space using skb_copy_datagram_iovec(). 
+Otherwise, the sk_buff is appended to one of the socket's queues and will be copied later.
+Finally, the receive functions call the socket's sk_data_ready virtual method to signal that data is available. 
+This wakes up waiting processes.
 ```

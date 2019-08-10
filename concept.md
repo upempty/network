@@ -37,6 +37,8 @@ Action: if no dest mac@ in ARP table, ARP broadcast.
 ```
 ## broadcast vs flooding
 ```
+ARP by sending a request as broadcast to the another VLAN network will not be reached.
+Flooding is also not allowed for different vlans port.
 A switch never broadcasts frames, host usually do broadcast.
   ARP is example for barodcast for finding IP@'s mac
 A switch can only flood a frame.

@@ -78,8 +78,7 @@ Finally, the receive functions call the socket's sk_data_ready virtual method to
 This wakes up waiting processes.
 ```
 ## interrupt top half and bottom halt
-![tcp recv](figure/1.PNG)
-![tcp send](figure/2.PNG)
+![tcp recv](figure/1.PNG) ![tcp send](figure/2.PNG)
 ```
 The high level path a packet takes from arrival to socket receive buffer is as follows:
 

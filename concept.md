@@ -56,5 +56,15 @@ Filtering is performed when the switch has an entry for both the source and dest
 Broadcasting :- There is one other frame type that is sent out every port on the switch except the one that received it, and that's a broadcast frmae, Broadcast frames are intended for all hosts, and the MAC broadcast address is ff-ff-ff-ff-ff-ff ( or FF-FF-FF-FF-FF-FF, as a MAC address's case does not matter. )
 ```
 ## packet flow
-[kernel flow](https://wiki.linuxfoundation.org/networking/kernel_flow)
+[kernel flow](https://wiki.linuxfoundation.org/networking/kernel_flow)  
 [netwrok arch](https://cse.yeditepe.edu.tr/~kserdaroglu/spring2014/cse331/termproject/BOOKS/ProfessionalLinuxKernelArchitecture-WolfgangMauerer.pdf)
+```
+struct sock {
+wait_queue_head_t *sk_sleep;
+struct sk_buff_head sk_receive_queue;
+/* Callback */
+void (*sk_data_ready)(struct sock *sk, int bytes);
+}
+Passing the incoming packet to an upper layer is done in tcp_rcv_established() and tcp_data_queue(). These functions maintain the tcp connection's out_of_order_queue, and the socket's sk_receive_queue and sk_async_wait_queue. If a user process is already waiting for data to arrive, the data is immediately copied to user space using skb_copy_datagram_iovec(). Otherwise, the sk_buff is appended to one of the socket's queues and will be copied later.
+Finally, the receive functions call the socket's sk_data_ready virtual method to signal that data is available. This wakes up waiting processes.
+```

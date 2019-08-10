@@ -77,7 +77,7 @@ Otherwise, the sk_buff is appended to one of the socket's queues and will be cop
 Finally, the receive functions call the socket's sk_data_ready virtual method to signal that data is available. 
 This wakes up waiting processes.
 ```
-## top interrupt and bottom interupt
+## interrupt top half and bottom halt
 ```
 The high level path a packet takes from arrival to socket receive buffer is as follows:
 

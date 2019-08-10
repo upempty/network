@@ -42,5 +42,16 @@ A switch never broadcasts frames, host usually do broadcast.
 A switch can only flood a frame.
  Flooding is for that unknown destination mac comes into switch:
   Since it doesn't know where the destination MAC address is, it floods the frame out all ports.
-   simply duplicate the frame and send it out all ports
+   simply duplicate the frame and send it out all other ports.
+
+Flooding :-
+Flooding is performed when the switch has no entry for the frame's destination MAC address. When a frame is flooded, it is sent out every single port on the swtich except the one it came in one. Unknown unicast frames are always flooded. 
+
+Forwarding :-
+Forwarding is performed when the switch does have an entry for the frame's destination MAC address. Forwarding a frame means the frame is being sent out only one port on the switch. 
+
+Filtering :-  Switch then fiters the frame (i.e. it kills the frame). Switch never sends a frame back to the same port it came in from.
+Filtering is performed when the switch has an entry for both the source and destination MAC address, and the MAC table indiacates that both addresses are found off the same port.
+
+Broadcasting :- There is one other frame type that is sent out every port on the switch except the one that received it, and that's a broadcast frmae, Broadcast frames are intended for all hosts, and the MAC broadcast address is ff-ff-ff-ff-ff-ff ( or FF-FF-FF-FF-FF-FF, as a MAC address's case does not matter. )
 ```

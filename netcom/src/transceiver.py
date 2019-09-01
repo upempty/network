@@ -1,12 +1,12 @@
-import message
-import connector
+from message import Message
+from connector import Connector
 
 class Transceiver:
     def __init__(self, connector):
         self._conn = connector
     
     def send_msg(self, mess):
-        if isinstance(mess, message.Message) == True:
+        if isinstance(mess, Message) == True:
             msg = mess.pack_msg(endianness='>')
         else:
             print ('to support message')
@@ -22,10 +22,10 @@ class Transceiver:
             msgs.append(msg)
         return msgs[0]
 
-conn = connector.Connector()
+conn = Connector()
 conn.open()
 
 trans = Transceiver(conn)
-msg = message.Message(1,2,3,4)
+msg = Message(1,2,3,4)
 trans.send_msg(msg)
 print ('ddd', msg)

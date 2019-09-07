@@ -77,6 +77,8 @@ Otherwise, the sk_buff is appended to one of the socket's queues and will be cop
 Finally, the receive functions call the socket's sk_data_ready virtual method to signal that data is available. 
 This wakes up waiting processes.
 ```
+
+
 ## interrupt top half and bottom halt
 [recv](https://blog.packagecloud.io/eng/2016/10/11/monitoring-tuning-linux-networking-stack-receiving-data-illustrated/)
 ![tcp recv](figure/1.PNG) 
@@ -97,3 +99,6 @@ Network data frames are handed to the protocol layers from the queues.
 Protocol layers process data.
 Data is added to receive buffers attached to sockets by protocol layers.
 ```
+## websocket
+websocket based on http, make sure that date send and receive as the same block, not bytes streaming.
+It is controlled in http like layer!

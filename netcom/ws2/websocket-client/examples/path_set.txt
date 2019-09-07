@@ -1,0 +1,11 @@
+
+#server
+/home/cf/project/pydb/ws/python-websocket-server
+[root@cfBareos python-websocket-server]# python3 server.py 
+
+#client
+export PYTHONPATH=$PYTHONPATH:/home/cf/project/pydb/ws/websocket-client
+/home/cf/project/pydb/ws/websocket-client/examples
+python3 send_json.py 9001
+
+

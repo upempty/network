@@ -104,4 +104,6 @@ Data is added to receive buffers attached to sockets by protocol layers.
 websocket based on http, make sure that date send and receive as the same block, not bytes streaming.
 It is controlled in http like layer!
 For application, it could rely on this to send json format data(dict)
+websocket client>-----json-----<-----websocket server
 ```
+## 

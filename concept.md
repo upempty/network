@@ -108,6 +108,6 @@ websocket client>-----json-----<-----websocket server
 ```
 ## TCP Segment
 '''
-with GSO/TSO: delay to do the segmentation, send big packet to nic, let nic do the seg.
+with GSO/TSO: delay to do the segmentation, send big packet to nic, let nic do the seg.  
 w/o  GSO/TSO: tcp_sendMsg to send MSS size data packet.
 '''

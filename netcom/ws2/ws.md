@@ -1,3 +1,9 @@
+## message
+```
+{'sender':'fei', 'event':'send', 'channel':'group1_schoolA', 'msg':'I will follow it'}
+
+```
+
 ## server
 ``` 
 /home/cf/project/pydb/T3/network/netcom/ws2

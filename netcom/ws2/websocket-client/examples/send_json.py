@@ -4,6 +4,7 @@ import time
 import sys
 import json
 
+#export PYTHONPATH=$PYTHONPATH:/home/cf/project/pydb/ws2/websocket-client:/home/cf/project/pydb/ws2/python-websocket-server
 
 port = sys.argv[1]
 

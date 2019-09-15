@@ -10,7 +10,7 @@ port = sys.argv[1]
 
 AA = json.dumps({
 	#"event": "subscribe",
-	"sender": "fei",
+	"sender": "dongdong",
 	"event": "send",
 	"channel": "ping",
 	"msg": "i will follow it",

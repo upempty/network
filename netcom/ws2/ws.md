@@ -2,6 +2,11 @@
 ```
 {'sender':'fei', 'event':'send', 'channel':'group1_schoolA', 'msg':'I will follow it'}
 
+## env
+```
+export PYTHONPATH=$PYTHONPATH://home/cf/project/pydb/T3/network/netcom/ws2/websocket-client:/home/cf/project/pydb/T3/network/netcom/ws2/python-websocket-server
+```
+
 ```
 
 ## server

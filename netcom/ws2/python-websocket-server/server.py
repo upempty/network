@@ -1,4 +1,5 @@
 from websocket_server import WebsocketServer
+import json
 
 # Called for every client connecting (after handshake)
 def new_client(client, server):
@@ -14,9 +15,15 @@ def client_left(client, server):
 
 # Called when a client sends a message
 def message_received(client, server, message):
-	if len(message) > 200:
-		message = message[:200]+'..'
-	print("Client(%d) said: %s" % (client['id'], message))
+    if len(message) > 200:
+        message = message[:200]+'..'
+    print("Client(%d) said: %s" % (client['id'], message))
+    msg = json.loads(message)
+    print(msg)
+    if msg['sender'] == 'fei':
+       print ("fei comes")
+    else:
+       print ("fei not comes", msg['sender'])
 
 
 PORT=9001

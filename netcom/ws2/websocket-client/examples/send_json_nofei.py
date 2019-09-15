@@ -12,8 +12,8 @@ AA = json.dumps({
 	#"event": "subscribe",
 	"sender": "dongdong",
 	"event": "send",
-	"channel": "ping",
-	"msg": "i will follow it",
+	"channel": "1",
+	"msg": "i will follow it2-1",
 	#"subscription": {"name": "com"}
      })
 print (AA)

@@ -8,6 +8,7 @@ from hashlib import sha1
 import logging
 from socket import error as SocketError
 import errno
+import json
 
 if sys.version_info[0] < 3:
     from SocketServer import ThreadingMixIn, TCPServer, StreamRequestHandler
@@ -125,6 +126,15 @@ class WebsocketServer(ThreadingMixIn, TCPServer, API):
 
     def _message_received_(self, handler, msg):
         self.message_received(self.handler_to_client(handler), self, msg)
+        m = json.loads(msg)
+        if m['channel'] == "1":
+            for client in self.clients:
+                if client['id'] == 1:
+                    m['channel'] = "cc-change"
+                    m = json.dumps(m)
+                    client['handler'].send_message(m)
+                    print ("2 to 1")
+                    break
 
     def _ping_received_(self, handler, msg):
         handler.send_pong(msg)

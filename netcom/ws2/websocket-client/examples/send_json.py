@@ -3,7 +3,7 @@ import _thread as thread
 import time
 import sys
 import json
-
+from websocket._abnf import ABNF
 #export PYTHONPATH=$PYTHONPATH:/home/cf/project/pydb/ws2/websocket-client:/home/cf/project/pydb/ws2/python-websocket-server
 
 port = sys.argv[1]
@@ -19,7 +19,11 @@ AA = json.dumps({
 print (AA)
 
 def on_message(ws, message):
-    print (message)
+    print ('on msg')    
+    print ('msg:', message)
+
+#def on_data(ws, message, ABNF.OPCODE_TEXT, 1):
+
 
 def on_error(ws, error):
     print (error)

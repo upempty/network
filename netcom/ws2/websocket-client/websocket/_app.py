@@ -340,8 +340,10 @@ class WebSocketApp(object):
         if callback:
             try:
                 if inspect.ismethod(callback):
+                    print('ismethod=yes')
                     callback(*args)
                 else:
+                    print('ismethod=no, by callback(self). tested comes here! by send_json.py 9001 {}', callback)
                     callback(self, *args)
 
             except Exception as e:

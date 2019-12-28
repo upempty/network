@@ -1,3 +1,6 @@
+## Graph
+![graph_1 Figure](graph_1.jpg)
+```   
 class Graph:
   class Vertex:
       def __init__(self, key):
@@ -9,5 +12,5 @@ class Graph:
       self.verlist = {}
       #{key1: {2:88, 3:99}}
       #{key2: {2:89, 4:77}}
-      
+```
       

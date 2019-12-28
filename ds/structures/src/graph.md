@@ -1,5 +1,5 @@
 ## Graph
-![graph_1 Figure](graph_1.jpg)
+![graph_1 Figure](img/graph_1.jpg)
 ```   
 class Graph:
   class Vertex:

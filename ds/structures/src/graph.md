@@ -1,5 +1,5 @@
 ## Graph
-![graph_1 Figure](img/graph_1.jpg)
+
 ```   
 class Graph:
   class Vertex:
@@ -14,3 +14,5 @@ class Graph:
       #{key2: {2:89, 4:77}}
 ```
       
+![graph_1 Figure](img/graph_1.jpg)
+![graph_2 Figure](img/graph_2.jpg)

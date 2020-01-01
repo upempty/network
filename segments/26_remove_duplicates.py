@@ -16,6 +16,6 @@ class Solution(object):
         for j in range(1, len(nums)):
             if nums[i] != nums[j]:
                 i += 1
-                #Note can't use nums[++i] issue
+                #Note: can't use nums[++i] issue
                 nums[i] = nums[j]
         return i+1

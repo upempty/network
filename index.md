@@ -4,5 +4,7 @@
 
 [fast path](https://upempty.github.io/network/dpdk)
 
-[proxy](https://upempty.github.io/network/module/proxy)
+[proxy](https://upempty.github.io/network/module/proxy)  
+   
+[design pattern](https://upempty.github.io/network/module/pattern) 
 

@@ -2,8 +2,10 @@
 
 ### poll usage
 
+IO 复用poll()解析, 内核会遍历所有添加的文件描述符，用户空间同样需要轮询。在每个fd都有事件的情况，效率还算可以，如果只有少数几个fd有事件到来，则这种poll的方式有些低效。
+
 ```c
-# IO 复用poll()解析
+
 
 struct pollfd pollfds;
 timeout = 1000;
@@ -21,7 +23,9 @@ while(1){
 
 **code:linux-5.6: **
 
-poll->do_sys_poll->do_poll->do_pollfd(pfd, pt..)
+poll->do_sys_poll->do_poll: 
+
+​      for each: do_pollfd(pfd, pt..), after all, then poll_schedule_timeout()--sleep until timeout.
 
   ->mask = vfs_poll(f.file, pwait);pollfd->revents = mangle_poll(mask);
 
@@ -34,7 +38,7 @@ poll->do_sys_poll->do_poll->do_pollfd(pfd, pt..)
 
 - sock_poll_wait->poll_wait(filp, &sock->wq.wait, p)-> 'p->_qproc(filp, wait_address, p)'->__pollwait
 
-     init_waitqueue_func_entry(&entry->wait, pollwake);(func=...)
+  init_waitqueue_func_entry(&entry->wait, pollwake);(func=...)
 
   ​       设置回调func:default_wake_function->try_to_wake_up
 
@@ -50,12 +54,21 @@ poll->do_sys_poll->do_poll->do_pollfd(pfd, pt..)
   >
   > sk->sk_data_ready	=	sock_def_readable;
   >
-  > wake_up_interruptible_sync_poll(&wq->wait, EPOLLIN | EPOLLPRI |
+  > wake_up_interruptible_sync_poll(&wq->wait, EPOLLIN   EPOLLPRI ..)
+
+  
 
 - tcp_stream_is_readable 
 
   > 2. **if data available on socket recv buffer(>sock_rcvlowat())**
 
+
+
+
+- poll_schedule_timeout sleep until timeout
+
+  > 3. when timeout, return from poll
+  
   
 
 ```c

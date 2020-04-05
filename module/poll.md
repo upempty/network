@@ -21,7 +21,7 @@ while(1){
 
 ### view code deeply
 
-**code:linux-5.6: **
+**code:linux-5.6 **
 
 poll->do_sys_poll->do_poll: 
 
@@ -67,7 +67,7 @@ poll->do_sys_poll->do_poll:
 
 - poll_schedule_timeout sleep until timeout
 
-  > 3. when timeout, return from poll
+  > 3. **when timeout, return from poll**
   
   
 

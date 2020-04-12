@@ -252,7 +252,7 @@ struct sk_buff {
 
 ### skb_shared_info 
 
-Reference: https://stackoverflow.com/questions/10039744/difference-between-skbuff-frags-and-frag-list
+[Reference](https://stackoverflow.com/questions/10039744/difference-between-skbuff-frags-and-frag-list)
 
 ```
 #define skb_shinfo(SKB)	((struct skb_shared_info *)(skb_end_pointer(SKB)))
